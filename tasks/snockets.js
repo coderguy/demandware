@@ -10,29 +10,26 @@ module.exports = function(grunt) {
     var snockets = new Snockets();
 
     if(this.data.combine) {
-      var combined = snockets.getConcatenation(this.file.src, {
-        async: false,
-        minify: false
-      });
-      grunt.file.write(this.file.dest + ".combined.js", combined);
+      var combined_data = snockets.getConcatenation(this.file.src, {async: false, minify: false}),
+        combined_path = this.file.dest.replace('.js','.combined.js');
+      grunt.file.write(combined_path, combined_data);
 
       // Fail task if errors were logged.
       if (this.errorCount) { return false; }
 
-      grunt.log.writeln('File "' + this.file.dest + ".combined.js" + '" created.');
+      grunt.log.writeln('File "' + combined_path + '" created.');
     }
 
     if(this.data.minify) {
-      var minified = snockets.getConcatenation(this.file.src, {
-        async: false,
-        minify: true
-      });
-      grunt.file.write(this.file.dest + ".min.js", minified);
+      var minified_data = snockets.getConcatenation(this.file.src, {async: false, minify: true}),
+        minified_path = this.file.dest.replace('.js','.min.js');
+        
+      grunt.file.write(minified_path, minified_data);
 
       // Fail task if errors were logged.
       if (this.errorCount) { return false; }
 
-      grunt.log.writeln('File "' + this.file.dest + ".min.js" + '" created.');
+      grunt.log.writeln('File "' + minified_path + '" created.');
     }
   });
 

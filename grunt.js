@@ -1,5 +1,5 @@
 /*global module:false*/
-module.exports = function(grunt) {
+module.exports = function (grunt) {
 
   // Project configuration.
   grunt.initConfig({
@@ -9,22 +9,21 @@ module.exports = function(grunt) {
     snockets: {
       dev: {
         src: 'app/javascript/all.js',
-        dest: 'public/javascript/all',
+        dest: 'public/javascript/all.js',
         combine: true,
-        minfiy: false
+        minify: false
       }
     },
     less: {
       dev: {
         paths: ['app/stylesheets'],
         src: 'app/stylesheets/all.less',
-        dest: 'public/stylesheets/all',
-        combine: true,
-        minfiy: false
+        dest: 'public/stylesheets/all.css',
+        minify: true
       }
     },
     watch: {
-      files: ['app/javascript/backbone/**', 'app/stylesheet/**'],
+      files: ['app/javascript/backbone/**', 'app/stylesheets/**'],
       tasks: 'snockets lint less snockets'
     },
     jshint: {
@@ -39,7 +38,9 @@ module.exports = function(grunt) {
         undef: true,
         boss: true,
         eqnull: true,
-        browser: true
+        browser: true,
+        indent: 2,
+        white: true //jslint whitespace rules
       },
       globals: {
         jQuery: true,

@@ -9,20 +9,33 @@ module.exports = function(grunt) {
   grunt.registerMultiTask('less', 'Combine less file', function() {
     var done = this.async(),
       self = this,
-      lessCss = grunt.file.read(this.file.src),
+      less_data = grunt.file.read(this.file.src),
+      combined_path = self.file.dest.replace(".css",".combined.css"),
+      minified_path = self.file.dest.replace(".css",".min.css"),
       parser = new less.Parser({
         paths: this.data.paths,
         filename: this.file.src
       });
     try {
-      parser.parse(lessCss, function (e, tree) {
-        var css = tree.toCSS();
-        grunt.file.write(self.file.dest + ".combined.css", css);
-
+      parser.parse(less_data, function (e, tree) {
+        var combined_data = tree.toCSS();
+        grunt.file.write(combined_path, combined_data);
+        
         // Fail task if errors were logged.
         if (self.errorCount) { return false; }
 
-        grunt.log.writeln('File "' + self.file.dest + ".combined.css" + '" created.');
+        grunt.log.writeln('File "' + combined_path + '" created.');
+
+        if(self.data.minify) {
+          var minified_data = tree.toCSS({ compress: true });
+          grunt.file.write(minified_path, minified_data);
+          
+          // Fail task if errors were logged.
+          if (self.errorCount) { return false; }
+
+          grunt.log.writeln('File "' + minified_path + '" created.');
+        }
+
         done();
       });
     } catch (e) {
