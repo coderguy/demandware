@@ -1,0 +1,17 @@
+{
+  "name": "dw-backbone",
+  "subdomain": "dw-backbone",
+  "scripts": {
+    "start": "bin/server.js"
+  },
+  "version": "0.0.1-2",
+  "engines": {
+    "node": "0.6.x"
+  },
+  "dependencies": {
+    "express": "2.5.x",
+    "grunt": "0.3.x",
+    "snockets": "1.3.x",
+    "less": "1.3.x"
+  }
+}

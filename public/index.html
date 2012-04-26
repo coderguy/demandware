@@ -1,0 +1,39 @@
+<!doctype html>
+
+<!--[if lt IE 7]> <html lang="en" class="no-js ie6"> <![endif]-->
+<!--[if IE 7]>    <html lang="en" class="no-js ie7"> <![endif]-->
+<!--[if IE 8]>    <html lang="en" class="no-js ie8"> <![endif]-->
+<!--[if IE 9]>    <html lang="en" class="no-js ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+
+    <title>DW on Backbone</title>
+    <meta name="author" content="Daniel Ice <dice@coderguy.com>">
+
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Magra" type="text/css">
+    <link rel="stylesheet" href="/stylesheets/all.combined.css" type="text/css" media="screen, projection">
+
+    <script src="/javascript/all.combined.js"></script>
+
+    <script type="text/template" id="product-grid">
+      <h1>Search Results</h1>
+      <ul class="products"></ul>
+    </script>
+
+    <script type="text/template" id="category-template">
+      <a href="/category/<%= id %>"><%= name %></a>
+    </script>
+
+    <script type="text/template" id="category-grid">
+      <h1>Categories</h1>
+      <ul class="categories"></ul>
+    </script>
+
+  </head>
+
+  <body>
+    <div id="container">
+    </div>
+  </body>
+</html>
