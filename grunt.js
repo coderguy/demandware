@@ -4,7 +4,7 @@ module.exports = function (grunt) {
   // Project configuration.
   grunt.initConfig({
     lint: {
-      files: ['grunt.js', 'app/javascript/backbone/**']
+      files: ['grunt.js', 'app/javascript/*.js', 'app/javascript/backbone/**']
     },
     snockets: {
       dev: {
@@ -19,11 +19,11 @@ module.exports = function (grunt) {
         paths: ['app/stylesheets'],
         src: 'app/stylesheets/all.less',
         dest: 'public/stylesheets/all.css',
-        minify: true
+        minify: false
       }
     },
     watch: {
-      files: ['app/javascript/backbone/**', 'app/stylesheets/**'],
+      files: ['app/javascript/*.js', 'app/javascript/backbone/**', 'app/stylesheets/**'],
       tasks: 'snockets lint less snockets'
     },
     jshint: {
