@@ -1,4 +1,4 @@
-(function(dw, Backbone, $, _) {
+(function (dw, Backbone, $, _) {
 
   dw.views.ProductView = Backbone.View.extend({
     template: "#product-template",
@@ -15,7 +15,7 @@
     },
 
     render: function () {
-      $(this.el).html(this.template(this.model.toJSON()));
+      this.$el.html(this.template(this.model.toJSON()));
       return this;
     }
   });

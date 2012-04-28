@@ -1,4 +1,4 @@
-(function(dw, Backbone, $, _) {
+(function (dw, Backbone, $, _) {
 
   dw.views.ProductGridView = Backbone.View.extend({
     tag: 'li',
@@ -13,9 +13,9 @@
     render: function () {
       var $products;
 
-      $(this.el).html(this.template({}));
+      this.$el.html(this.template({}));
       $products = this.$(".products");
-      this.model.each(function(product) {
+      this.model.each(function (product) {
         var view = new dw.views.ProductPreviewView({
           model: product
         });

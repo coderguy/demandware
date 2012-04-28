@@ -1,4 +1,4 @@
-(function(dw, Backbone, $, _) {
+(function (dw, Backbone, $, _) {
 
   dw.models.ProductPreview = Backbone.Model.extend({
     sync: dw.config.sync

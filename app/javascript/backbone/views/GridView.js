@@ -1,4 +1,4 @@
-(function(dw, Backbone, $, _) {
+(function (dw, Backbone, $, _) {
 
   dw.views.GridView = Backbone.View.extend({
     tagName: "div",
@@ -14,9 +14,9 @@
       var $products,
         collection = this.collection;
 
-      $(this.el).html(this.template({}));
+      this.$el.html(this.template({}));
       $products = this.$(".products");
-      this.collection.each(function(album) {
+      this.collection.each(function (album) {
         var view = new dw.views.ProductGridView({
           model: album
         });

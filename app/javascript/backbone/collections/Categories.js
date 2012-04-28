@@ -1,4 +1,4 @@
-(function(dw, Backbone, $, _) {
+(function (dw, Backbone, $, _) {
 
   dw.collections.Categories = Backbone.Collection.extend({
     model: dw.models.Category,
@@ -6,7 +6,7 @@
     url: function () {
       return dw.config.base_url + "/categories/root?levels=1&client_id=" + dw.config.client_id;
     },
-    parse: function(data) {
+    parse: function (data) {
       return data.categories;
     }
   });

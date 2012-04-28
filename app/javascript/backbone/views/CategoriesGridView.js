@@ -1,4 +1,4 @@
-(function(dw, Backbone, $, _) {
+(function (dw, Backbone, $, _) {
 
   dw.views.CategoriesView = Backbone.View.extend({
     tagName: "div",
@@ -12,9 +12,9 @@
     render: function () {
       var $categories;
 
-      $(this.el).html(this.template({}));
+      this.$el.html(this.template({}));
       $categories = this.$(".categories");
-      this.model.each(function(category) {
+      this.model.each(function (category) {
         var view = new dw.views.CategoryView({
           model: category
         });

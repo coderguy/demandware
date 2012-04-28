@@ -1,4 +1,4 @@
-(function(dw, Backbone, $, _) {
+(function (dw, Backbone, $, _) {
 
   dw.router.BackboneDW = Backbone.Router.extend({
     routes: {
@@ -22,7 +22,7 @@
       this.categories.fetch();
     },
 
-    product: function(id) {
+    product: function (id) {
       var self = this;
       this.product = new dw.models.Product({id: id});
       this.productView = new dw.views.ProductView({
@@ -36,7 +36,7 @@
       this.product.fetch();
     },
 
-    category: function(id) {
+    category: function (id) {
       var self = this;
       this.category = new dw.models.Category({id: id});
       this.categoryView = new dw.views.CategoryView({

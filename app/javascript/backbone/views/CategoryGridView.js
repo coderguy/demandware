@@ -1,4 +1,4 @@
-(function(dw, Backbone, $, _) {
+(function (dw, Backbone, $, _) {
 
   dw.views.CategoryView = Backbone.View.extend({
     template: "#category-template",
@@ -15,7 +15,7 @@
     },
 
     render: function () {
-      $(this.el).html(this.template(this.model.toJSON()));
+      this.$el.html(this.template(this.model.toJSON()));
       return this;
     }
   });
