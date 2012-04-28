@@ -54,31 +54,31 @@ You must have [node.js](http://nodejs.org/) installed to run the included web se
 
 Once you have node installed, please checkout the code from the github repo:
 
-<code>
+```
 cd some/folder/on/your/machine
 git clone git@github.com:coderguy/demandware-oc-api-boilerplate.git
-</code>
+```
 
 ## Install NPM Packages
 
-<code>
+```
 cd demandware-oc-api-boilerplate
 npm install
 npm install grunt -g
-</code>
+```
 
 ## Build the CSS & JS
 
-<code>
+```
 cd demandware-oc-api-boilerplate
 grunt
-</code>
+```
 
 ## Start the server
 
-<code>
+```
 node bin/server.js
-</code>
+```
 
 ## View the site
 
@@ -88,11 +88,11 @@ Visit [http://localhost:8080/](http://localhost:8080)
 
 To develop the code you will want to run both the server and the watcher.
 
-<code>
+```
 cd demandware-oc-api-boilerplate
 node bin/server.js & # the & runs the server in the background
 grunt watch
-</code>
+```
 
 As you make changes to your javascript or stylesheets files in the javascripts folder they will be linted (jshint), combined and minfied.  These combined and minified files are placed in the public folder.
 
