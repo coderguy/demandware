@@ -1,19 +1,20 @@
 (function (dw, Backbone, $, _, dust) {
 
-  dw.ProductGridView = Backbone.View.extend({
+  dw.SearchView = Backbone.View.extend({
 
     initialize: function () {
       _.bindAll(this, 'render');
     },
-
+    
     render: function () {
-      var $products = $('ul.products'),
-        data = { products: this.collection.toJSON() };
-      dust.render("product_grid", data, function (err, output) {
+      var $main = $('#content'),
+        data = {query: this.collection.query, products: this.collection.toJSON()};
+
+      dust.render("search_index", data, function (err, output) {
         if (err) {
           throw err;
         }
-        $products.html(output);
+        $main.html(output);
       });
     }
 

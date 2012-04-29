@@ -7,3 +7,4 @@
 //= require underscore
 //= require backbone
 //= require liquid.min
+//= require dust-core-0.3.0

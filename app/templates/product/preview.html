@@ -1,0 +1,9 @@
+<li class="preview">
+  <h3><a href="/products/{product_id}">{product_name}</a></h3>
+  {#image}
+    <a href="/products/{product_id}"><img src="{link}" title="{title}" alt="{alt}" width="120"/></a>
+  {:else}
+    <a href="/products/{product_id}"><span class="no-image">No Image</span></a>
+  {/image}
+  <p>${price|currency}</p>
+</li>

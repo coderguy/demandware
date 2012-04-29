@@ -1,5 +1,5 @@
 jQuery(document).ready(function () {
-  window.app.dw.router = new window.app.dw.router.BackboneDW();
+  window.app.dw.router = new window.app.dw.AppRouter();
   Backbone.history.start({pushState: true});
 
   window.document.addEventListener('click', function (e) {
@@ -14,4 +14,5 @@ jQuery(document).ready(function () {
   window.addEventListener('popstate', function (e) {
     window.app.dw.router.navigate(location.pathname.substr(1), true);
   });
+
 });

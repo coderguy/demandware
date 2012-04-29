@@ -1,23 +1,22 @@
-(function (dw, Backbone, $, _) {
+(function (dw, Backbone, $, _, dust) {
 
-  dw.views.ProductView = Backbone.View.extend({
-    template: "#product-template",
-    tag: 'div',
-    className: 'product',
+  dw.ProductView = Backbone.View.extend({
 
     initialize: function () {
       _.bindAll(this, 'render');
-      this.initializeTemplate();
-    },
-    
-    initializeTemplate: function () {
-      this.template = _.template($(this.template).html());
     },
 
     render: function () {
-      this.$el.html(this.template(this.model.toJSON()));
-      return this;
+      var $content = $('#content'),
+        data = this.model.toJSON();
+      dust.render("product_detail", data, function (err, output) {
+        if (err) {
+          throw err;
+        }
+        $content.html(output);
+      });
     }
+
   });
 
-}(window.app.dw, Backbone, jQuery, _));
+}(window.app.dw, Backbone, jQuery, _, dust));

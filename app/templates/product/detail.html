@@ -1,0 +1,21 @@
+<div id="product">
+  <h1>{name}</h1>
+
+  <div class="grid_6">
+    {#image}
+        <img src="{link}" title="{title}" alt="{alt}" width="240"/>
+    {:else}
+      <span class="no-image">No Image</span>
+    {/image}
+  </div>
+
+  <div class="grid_6">
+    <h2>
+      {#long_description}
+        Description
+      {/long_description}
+      <span>${price|currency}</span>
+    </h2>
+    <p>{long_description}</p>
+  </div>
+</div>

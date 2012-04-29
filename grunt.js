@@ -22,9 +22,15 @@ module.exports = function (grunt) {
         minify: false
       }
     },
+    dust: {
+      dev: {
+        src: 'app/templates',
+        dest: 'app/templates/templates.combined.js'
+      }
+    },
     watch: {
-      files: ['app/javascript/*.js', 'app/javascript/backbone/**', 'app/stylesheets/**'],
-      tasks: 'snockets lint less snockets'
+      files: ['app/javascript/*.js', 'app/javascript/backbone/**', 'app/stylesheets/**', 'app/templates/**'],
+      tasks: 'dust snockets less lint'
     },
     jshint: {
       options: {
@@ -43,9 +49,11 @@ module.exports = function (grunt) {
         white: true //jslint whitespace rules
       },
       globals: {
+        console: true,
         jQuery: true,
         Backbone: true,
-        '_': true
+        '_': true,
+        dust: true
       }
     },
     uglify: {}
@@ -55,6 +63,6 @@ module.exports = function (grunt) {
   grunt.loadTasks("tasks");
 
   // Default task.
-  grunt.registerTask('default', 'lint snockets less');
+  grunt.registerTask('default', 'dust snockets less lint');
 
 };

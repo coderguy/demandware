@@ -11,29 +11,25 @@
     <title>DW on Backbone</title>
     <meta name="author" content="Daniel Ice <dice@coderguy.com>">
 
-    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Magra" type="text/css">
     <link rel="stylesheet" href="/stylesheets/all.combined.css" type="text/css" media="screen, projection">
 
     <script src="/javascript/all.combined.js"></script>
 
-    <script type="text/template" id="product-grid">
-      <h1>Search Results</h1>
-      <ul class="products"></ul>
-    </script>
-
-    <script type="text/template" id="category-template">
-      <a href="/category/<%= id %>"><%= name %></a>
-    </script>
-
-    <script type="text/template" id="category-grid">
-      <h1>Categories</h1>
-      <ul class="categories"></ul>
-    </script>
-
   </head>
 
   <body>
-    <div id="container">
-    </div>
+    <header>
+      <div id="nav" class="container_12">
+        <h1><a href="/">Sample Store</a></h1>
+
+        <div id="search">
+          <form action="search" method="get" accept-charset="utf-8">
+            <input type="text" name="q" value="" placeholder="search" id="q">
+            <input type="submit" value="&rarr;">
+          </form>
+        </div>
+      </div>
+    </header>
+    <div id="content" class="container_12"></div>
   </body>
 </html>

@@ -1,7 +1,7 @@
-(function (dw, Backbone, $, _) {
+(function (dw, Backbone, $, _, dust) {
 
-  dw.models.ProductPreview = Backbone.Model.extend({
+  dw.ProductPreview = Backbone.Model.extend({
     sync: dw.config.sync
   });
 
-}(window.app.dw, Backbone, jQuery, _));
+}(window.app.dw, Backbone, jQuery, _, dust));
