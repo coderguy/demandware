@@ -102,6 +102,27 @@ Note: The & on the end of server command will make it run in the background.  To
 ```
 node killall
 ```
+# Deployment
+
+## Apache
+
+1. Run the grunt command to build the css and javascript files.
+2. Copy the public folder to the web root of your Apache server.
+3. Add an .htaccess file with the following rules:
+
+```
+<ifModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_URI} !index
+  RewriteRule (.*) index.html [L]
+</ifModule>
+```
+
+## Other Environments
+
+Coming soon.
 
 # Credits
 
