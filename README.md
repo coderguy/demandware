@@ -77,7 +77,7 @@ grunt
 ## Start the server
 
 ```
-node bin/server.js
+bin/server.js
 ```
 
 ## View the site
@@ -90,19 +90,28 @@ To develop the code you will want to run both the server and the watcher.
 
 ```
 cd demandware-oc-api-boilerplate
-node bin/server.js & # the & runs the server in the background
+grunt
+bin/server.js &
 grunt watch
 ```
 
 As you make changes to your javascript or stylesheets files in the javascripts folder they will be linted (jshint), combined and minfied.  These combined and minified files are placed in the public folder.
 
+Note: The & on the end of server command will make it run in the background.  To stop the web server run:
+
+```
+node killall
+```
+
 # Credits
 
 This project was developed by Daniel Ice:
 
+```
 email: dice at coderguy dot com
-website: http://www.coderguy.com
+website: http://coderguy.com
 twitter: coderguy64
+```
 
 If you need help getting it setup feel free to email me.
 
