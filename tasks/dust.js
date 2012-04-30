@@ -1,4 +1,4 @@
-var dust = require('dust'),
+var dust = require('dustjs-linkedin'),
   findit = require('findit');
 
 module.exports = function(grunt) {

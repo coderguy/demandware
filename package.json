@@ -9,11 +9,11 @@
     "node": "0.6.x"
   },
   "dependencies": {
-    "express": "2.5.*",
+    "express": "2.5.x",
     "grunt": "0.3.x",
     "snockets": "1.3.x",
     "less": "1.3.x",
-    "dust": "https://github.com/linkedin/dustjs/tarball/master",
+    "dustjs-linkedin": "0.4.x",
     "findit": "0.1.x"
   }
 }
