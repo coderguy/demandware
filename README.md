@@ -124,6 +124,14 @@ node killall
 
 Coming soon.
 
+# Demo
+
+[View live demo](http://www.dicebin.com).
+
+## Example Screenshot
+
+![](https://github.com/coderguy/demandware/raw/master/docs/images/screenshot.png)
+
 # Credits
 
 This project was developed by Daniel Ice:
