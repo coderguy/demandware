@@ -3,7 +3,10 @@
 var express = require('express'),
   fs = require("fs"),
   app = express.createServer(),
-  port = (process.env.NODE_ENV === 'production') ? 80 : 8080;
+  port = (process.env.NODE_ENV === 'production') ? 80 : 8080,
+  grunt = require("grunt");
+
+grunt.cli();
 
 app.use("/javascript", express.static('public/javascript'));
 app.use("/stylesheets", express.static('public/stylesheets'));
