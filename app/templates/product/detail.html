@@ -13,6 +13,8 @@
     <h2>
       {#long_description}
         Description
+      {:else}
+        No Description
       {/long_description}
       <span>${price|currency}</span>
     </h2>

@@ -1,5 +1,10 @@
-<ul class="sections">
-  {#categories}
-    <li><a href="/category/{id}">{name}</a></li>
-  {/categories}
-</ul>
+{?categories}
+  <ul class="sections">
+    {#categories}
+      <li>
+        <a href="/category/{id}">{name}</a>
+        {?categories}{>nav_categories:./}{/categories}
+      </li>
+    {/categories}
+  </ul>
+{/categories}

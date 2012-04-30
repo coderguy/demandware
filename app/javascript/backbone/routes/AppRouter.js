@@ -17,28 +17,41 @@ var fetch_debug = {
       'search/:q': 'search'
     },
 
+    initialize: function () {
+      this.on('all', this.routeEvents);
+    },
+
+    routeEvents: function (event) {
+      console.log(event);
+      if (event.match('route')) {
+        this.loadNavigation();
+      }
+    },
+
     loadNavigation: function () {
-      if (!dw.models.nav) {
+      if (!dw.collections.nav) {
         // using "global" because these are global elements
-        dw.models.nav = new dw.Categories();
+        dw.collections.nav = new dw.Categories();
         dw.views.nav = new dw.NavMenuView({
-          model: dw.models.nav
+          model: dw.collections.nav
         });
 
-        dw.models.nav.on('reset', dw.views.nav.render);
-        dw.models.nav.fetch();
+        dw.collections.nav.on('reset', dw.views.nav.render);
+        dw.collections.nav.fetch();
       }
     },
 
     home: function () {
-      this.loadNavigation();
+      var categories = new dw.Categories(),
+        homeView = new dw.HomeView({collection: categories});
+
+      categories.on('reset', homeView.render);
+      categories.fetch();
     },
 
     product: function (id) {
       var product = new dw.Product({id: id}),
         productView = new dw.ProductView({model: product});
-
-      this.loadNavigation();
 
       product.on('change', productView.render);
       product.fetch();
@@ -48,8 +61,6 @@ var fetch_debug = {
       var category = new dw.Category({id: id, load_products: true}),
         categoryView = new dw.CategoryView({model: category});
 
-      this.loadNavigation();
-
       category.on('change', categoryView.render);
       category.fetch();
     },
@@ -57,8 +68,6 @@ var fetch_debug = {
     search: function (q) {
       var search = new dw.ProductSearchCollection(),
         searchView = new dw.SearchView({collection: search});
-
-      this.loadNavigation();
 
       search.setQuery(q);
 

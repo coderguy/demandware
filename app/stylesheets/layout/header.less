@@ -2,29 +2,49 @@ header {
   background-color: @gray;
   border-bottom: 1px solid @gray;
 
-  h1 {
-    margin: 0;
-  }
-
   #nav {
     ul {
+      background-color: @white;
+      display: inline-block;
+      padding: 5px;
+      border: 1px @dark_gray solid;
+      -moz-border-radius: 15px;
+      border-radius: 15px;
+
       li {
         display: inline-block;
         list-style: none;
         margin: 0;
         padding: 0 10px;
-        border-right: 1px solid #000;
+        border-right: 1px solid @dark_gray;
         a {
-          color: #000;
           font-size: 20px;
-          text-decoration: none;
-          text-transform: uppercase;
-          &:hover {
-            color: #f00;
-          }
         }
         &:last-child {
           border-right: none;
+        }
+        &:hover {
+          ul {
+            display: block;
+            position: absolute;
+          }
+        }
+        ul {
+          padding: 0px;
+          display: none;
+          background-color: @gray;
+          border: 1px solid @dark_gray;
+          -moz-border-radius: 0px;
+          border-radius: 0px;
+          li {
+            display: block;
+            border-right: none;
+            border-bottom: 1px solid @dark_gray;
+
+            &:last-child {
+              border-bottom: none;
+            }
+          }
         }
       }
     }
@@ -35,6 +55,5 @@ header {
     }
 
   }
-
 
 }

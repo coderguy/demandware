@@ -2,6 +2,10 @@
 
   dw.Category = Backbone.Model.extend({
     sync: dw.config.sync,
+    categories: false,
+    defaults: {
+      depth: 0
+    },
 
     initialize: function (attributes) {
       var self = this;
@@ -15,11 +19,15 @@
           self.products.fetch();
         });
       }
-      
+
+      if (attributes.categories) {
+        this.categories = new dw.Categories(attributes.categories);
+      }
+
     },
 
     url: function () {
-      return dw.config.base_url + "/categories/" + this.get('id') + "?levels=0&client_id=" + dw.config.client_id;
+      return dw.config.base_url + "/categories/" + this.get('id') + "?levels=" + this.get('depth') + "&client_id=" + dw.config.client_id;
     }
   });
 

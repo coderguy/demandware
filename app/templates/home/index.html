@@ -1,0 +1,9 @@
+<h1>Home</h1>
+
+{#categories}
+  <h2><a href="/category/{id}">{name}</a></h2>
+  {#categories}
+    <h3><a href="/category/{id}">{name}</a></h3>
+    <a href="/category/{id}"><img src="{image}" alt="{name}"/></a>
+  {/categories}
+{/categories}

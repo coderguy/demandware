@@ -4,8 +4,10 @@
     sync: dw.config.sync,
 
     parse: function (response) {
-      response.image = response.image_groups[0].images[0];
       console.log(response);
+      if (response.image_groups.length > 0) {
+        response.image = response.image_groups[0].images[0];
+      }
       return response;
     },
 
