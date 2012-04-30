@@ -4,7 +4,7 @@ var express = require("express"),
   fs = require("fs"),
   app = express.createServer(),
   port = (process.env.NODE_ENV === "production") ? 80 : 8080,
-  root_dir = __dirname.replace('/bin','');
+  root_dir = process.cwd().replace('/bin','');
 
 app.use("/javascript", express.static(root_dir + "/public/javascript"));
 app.use("/stylesheets", express.static(root_dir + "/public/stylesheets"));
