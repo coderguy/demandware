@@ -1,18 +1,16 @@
 #!/usr/bin/env node
 
-var express = require('express'),
+var express = require("express"),
   fs = require("fs"),
   app = express.createServer(),
-  port = (process.env.NODE_ENV === 'production') ? 80 : 8080,
-  grunt = require("grunt");
+  port = (process.env.NODE_ENV === "production") ? 80 : 8080,
+  root_dir = __dirname.replace('/bin','');
 
-grunt.cli();
-
-app.use("/javascript", express.static('public/javascript'));
-app.use("/stylesheets", express.static('public/stylesheets'));
+app.use("/javascript", express.static(root_dir + "/public/javascript"));
+app.use("/stylesheets", express.static(root_dir + "/public/stylesheets"));
 
 app.get("*", function(req, res) {
-  fs.createReadStream("public/index.html").pipe(res);
+  fs.createReadStream(root_dir + "/public/index.html").pipe(res);
 });
 
 app.listen(port);
