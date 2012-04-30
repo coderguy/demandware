@@ -1,6 +1,28 @@
 {
-  "name": "dw-backbone",
-  "subdomain": "dw-backbone",
+  "name": "demandware",
+  "subdomain": "demandware",
+  "description": "Demandware Open Commerce API Tools (Backbone.js Storefront)",
+  "author": "Daniel Ice <dice@coderguy.com>",
+  "keywords": [
+      "demandware",
+      "open commerce api",
+      "mirror"
+  ],
+  "bugs": {
+      "url": "http://github.com/coderguy/demandware/issues" 
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://opensource.org/licenses/mit-license.php" 
+    } 
+  ],
+  "repositories": [
+      {
+          "type": "git",
+          "url": "git://github.com/coderguy/demandware.git" 
+      } 
+  ],
   "scripts": {
     "start": "bin/server.js"
   },
